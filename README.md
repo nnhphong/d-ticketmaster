@@ -1,25 +1,15 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/3xuryA7o)
 # D-Ticketmaster
 
-The goal of this assignment is to design and implement a decentralized ticketing system using blockchain technology. The system should allow users to create events, sell tickets, and verify ownership of tickets in a decentralized manner, reducing fraud and eliminating the need for intermediaries.
-
-## Submission Guidelines
-
-1. Submit a GitHub repository containing:
-    - Smart contract code (Solidity) + Tests (at least 95% hardhat test coverage)
-    - Frontend source code
-    - Deployment info (Testnet used, contract address, etc.)
-    - README.md report as outlined in the documentation section
-2. Provide a demo video (around 15 minutes) showcasing functionality, code, tests and test coverage walkthrough
+The goal is to design and implement a decentralized ticketing system using blockchain technology. The system should allow users to create events, sell tickets, and verify ownership of tickets in a decentralized manner, reducing fraud and eliminating the need for intermediaries.
 
 ## Project Requirements
 
-1. Smart Contract Development (40 marks)
+1. Smart Contract Development 
     - Implement marketplace smart contract in Solidity that allows event organizers to create and manage tickets, including specifying details such as name, date, time, location, description, ticket price and total ticket supply on sale.
     - The contract should enable the primary sales and secondary sales of tickets with % royalty distribution to the event organizer. All sales also include a % for platform fee sent to a treasury wallet address.
     - Each ticket should be a unique NFT (use ERC-721 standard and OpenSea Metadata and Openzeppelin Royalty standard).
     - Each ticket should also include details such as ticket ID and seat number.
-2. Frontend & User Interface (30 marks)
+2. Frontend & User Interface
     - Develop a simple frontend using React.js or any web framework to interact with the smart contract.
     - Users should be able to:
         - Create an event
@@ -28,10 +18,10 @@ The goal of this assignment is to design and implement a decentralized ticketing
         - Transfer tickets to other users
         - Sell and purchase tickets on the secondary market
         - Use MetaMask or another Web3 wallet for authentication and transactions.
-3. Security & Validation (15 marks)
+3. Security & Validation 
     - Ensure secure interactions using OpenZeppelin. Read through all of the docs and use what is needed.
     - Implement loading and error handling for failed transactions and smart contract interactions.
-4. Documentation & Report (15 marks): Provide a report explaining:
+4. Documentation & Report: Provide a report explaining:
     - The overall system architecture
     - Smart contract plan, logic and implementation
     - Steps to deploy and test the contract
