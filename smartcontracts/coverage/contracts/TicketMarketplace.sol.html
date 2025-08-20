@@ -1,0 +1,893 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for contracts\TicketMarketplace.sol</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">contracts/</a> TicketMarketplace.sol
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>37/37</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">76.56% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>49/64</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>15/15</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>52/52</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">31×</span>
+<span class="cline-any cline-yes">31×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">35×</span>
+<span class="cline-any cline-yes">34×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">34×</span>
+<span class="cline-any cline-yes">34×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">34×</span>
+<span class="cline-any cline-yes">34×</span>
+<span class="cline-any cline-yes">34×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15×</span>
+<span class="cline-any cline-yes">15×</span>
+<span class="cline-any cline-yes">15×</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.28;
+&nbsp;
+import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import "@openzeppelin/contracts/utils/Pausable.sol";
+import "hardhat/console.sol";
+&nbsp;
+/**
+ * @title TicketMarketplace
+ * @dev A marketplace for buying, selling, and transferring event tickets as NFTs.
+ * Tickets are ERC721 tokens, and payments are made using an ERC20 token (TCOIN).
+ * The contract supports primary and secondary ticket sales, with fees for the platform and event organizers.
+ */
+contract TicketMarketplace is Ownable, ERC721URIStorage, Pausable {
+    /// @dev Struct to store event details.
+    struct Event {
+        string name; // Name of the event
+        string date; // Date of the event
+        string time; // Time of the event
+        string location; // Location of the event
+        string description; // Description of the event
+        uint totalTickets; // Total number of tickets available
+        uint ticketsSold; // Number of tickets sold
+        address organizer; // Address of the event organizer
+    }
+&nbsp;
+    /// @dev Struct to store ticket details.
+    struct Ticket {
+        uint ticketId; // Unique ID of the ticket
+        uint eventId; // ID of the event the ticket belongs to
+        uint seatNumber; // Seat number of the ticket
+        uint ticketPrice; // Primary price of each ticket in TCOIN
+    }
+&nbsp;
+    /// @dev The ERC20 token used for payments (TCOIN).
+    IERC20 public tcoin;
+&nbsp;
+    /// @dev Counter for generating unique event IDs.
+    uint public nextEventId = 1;
+&nbsp;
+    /// @dev Counter for generating unique ticket IDs.
+    uint public nextTicketId = 1;
+&nbsp;
+    /// @dev Platform fee percentage (e.g., 5%).
+    uint public platformFeePercent = 5;
+&nbsp;
+    /// @dev Royalty fee percentage for event organizers on secondary sales (e.g., 10%).
+    uint public royaltyPercent = 10;
+&nbsp;
+    /// @dev Address of the treasury wallet where platform fees are sent.
+    address public treasuryWallet;
+&nbsp;
+    /// @dev Emitted when a new event is created.
+    event EventCreated(uint eventId, string name, uint totalTickets);
+&nbsp;
+    /// @dev Emitted when a ticket is purchased.
+    event TicketPurchased(uint ticketId, uint eventId, address buyer);
+&nbsp;
+    /// @dev Emitted when a ticket is listed for resale.
+    event TicketListed(uint ticketId, uint price);
+&nbsp;
+    /// @dev Emitted when a ticket is transferred to another address.
+    event TicketTransferred(uint ticketId, address from, address to);
+&nbsp;
+    /// @dev Mapping of event IDs to Event structs.
+    mapping(uint =&gt; Event) public events;
+&nbsp;
+    /// @dev Mapping of ticket IDs to Ticket structs.
+    mapping(uint =&gt; Ticket) public tickets;
+&nbsp;
+    /// @dev Mapping of ticket IDs to their resale prices.
+    mapping(uint =&gt; uint) public secondarySaleTicketPrices;
+&nbsp;
+    /**
+     * @dev Initializes the contract.
+     * @param _owner The address of the contract owner.
+     * @param _treasuryWallet The address of the treasury wallet.
+     * @param _tcoin The address of the ERC20 token (TCOIN) used for payments.
+     */
+    constructor(address _owner, address _treasuryWallet, IERC20 _tcoin) ERC721("Event Ticket", "TIX") Ownable(_owner) {
+        treasuryWallet = _treasuryWallet;
+        tcoin = _tcoin;
+    }
+&nbsp;
+    /**
+     * @dev Modifier to restrict access to the owner of a ticket.
+     * @param ticketId The ID of the ticket.
+     */
+    modifier onlyTicketOwner(uint ticketId) {
+        require(ownerOf(ticketId) == msg.sender, "Not ticket owner");
+        _;
+    }
+&nbsp;
+    /**
+     * @dev Creates a new event.
+     * @param name The name of the event.
+     * @param date The date of the event.
+     * @param time The time of the event.
+     * @param location The location of the event.
+     * @param description A description of the event.
+     * @param ticketPrice The price of each ticket in TCOIN.
+     * @param totalTickets The total number of tickets available.
+     */
+    function createEvent(
+        string memory name,
+        string memory date,
+        string memory time,
+        string memory location,
+        string memory description,
+        uint[] memory ticketPrice,
+        uint[] memory seatNumber,
+        uint totalTickets
+    ) external <span class="missing-if-branch" title="else path not taken" >E</span>whenNotPaused {
+        require(ticketPrice.length == totalTickets, "Ticket prices array length must match total tickets");
+        events[nextEventId] = Event(
+            name,
+            date,
+            time,
+            location,
+            description,
+            totalTickets,
+            0,
+            msg.sender
+        );
+&nbsp;
+        for (uint i = nextTicketId; i &lt; nextTicketId + totalTickets; i++) {
+            tickets[i] = Ticket(i, nextEventId, seatNumber[i - nextTicketId], ticketPrice[i - nextTicketId]);
+        }
+        nextTicketId += totalTickets;
+        emit EventCreated(nextEventId, name, totalTickets);
+        nextEventId++;
+    }
+&nbsp;
+    // ==== Primary Marketplace Functions ==== //
+&nbsp;
+    /**
+     * @dev Allows a user to buy a ticket for an event.
+     * @param eventId The ID of the event.
+     * @param ticketId The ID of the ticket.
+     */
+    function buyTicket(uint eventId, uint ticketId) external whenNotPaused {
+        Event storage event_ = events[eventId];
+        Ticket storage ticket = tickets[ticketId];
+        require(ticket.ticketPrice &gt; 0, "Ticket not for sale");
+        require(event_.ticketsSold &lt; event_.totalTickets, "Sold out");
+        require(tcoin.transferFrom(msg.sender, event_.organizer, ticket.ticketPrice), "Transfer to organizer failed");
+        <span class="missing-if-branch" title="else path not taken" >E</span>require(tcoin.transferFrom(msg.sender, treasuryWallet, ticket.ticketPrice * platformFeePercent / 100), "Transfer platform fee failed");
+&nbsp;
+        // Mint NFT for the ticket
+        _safeMint(msg.sender, ticketId);
+        event_.ticketsSold++;
+&nbsp;
+        emit TicketPurchased(ticketId, eventId, msg.sender);
+    }
+&nbsp;
+    /**
+     * @dev Allows a user to buy a ticket listed for resale.
+     * @param ticketId The ID of the ticket.
+     */
+    function buyResaleTicket(uint ticketId) external <span class="missing-if-branch" title="else path not taken" >E</span>whenNotPaused {
+        Ticket storage ticket = tickets[ticketId];
+        uint price = secondarySaleTicketPrices[ticketId];
+        require(price &gt; 0, "Ticket not listed for resale");
+        <span class="missing-if-branch" title="else path not taken" >E</span>require(msg.sender != ownerOf(ticketId), "Owners cannot buy their own ticket");
+        <span class="missing-if-branch" title="else path not taken" >E</span>require(tcoin.transferFrom(msg.sender, ownerOf(ticketId), price), "Transfer to seller failed");
+        <span class="missing-if-branch" title="else path not taken" >E</span>require(tcoin.transferFrom(msg.sender, treasuryWallet, price * platformFeePercent / 100), "Transfer platform fee failed");
+        <span class="missing-if-branch" title="else path not taken" >E</span>require(tcoin.transferFrom(msg.sender, events[ticket.eventId].organizer, price * royaltyPercent / 100), "Transfer royalty fee failed");
+&nbsp;
+        // Transfer NFT to buyer
+        ticket.ticketPrice = price;
+        secondarySaleTicketPrices[ticketId] = 0;
+        _transfer(ownerOf(ticketId), msg.sender, ticketId);
+        emit TicketPurchased(ticketId, ticket.eventId, msg.sender);
+    }
+&nbsp;
+    /**
+     * @dev Allows a ticket owner to transfer their ticket to another address.
+     * @param ticketId The ID of the ticket.
+     * @param to The address to transfer the ticket to.
+     */ 
+    function transferTicket(uint ticketId, address to) external whenNotPaused {
+        _transfer(msg.sender, to, ticketId);
+        emit TicketTransferred(ticketId, msg.sender, to);
+    }
+&nbsp;
+    /**
+     * @dev Verifies if a ticket exists and is owned by someone.
+     * @param ticketId The ID of the ticket.
+     * @return bool True if the ticket exists and is owned, false otherwise.
+     */
+    function verifyTicket(uint ticketId) external view <span class="missing-if-branch" title="else path not taken" >E</span>whenNotPaused returns (bool) {
+        require(ticketId &lt;= nextTicketId, "Token does not exist.");
+        require(ownerOf(ticketId) != address(0), "Ticket has no owner.");
+        return true;
+    }
+&nbsp;
+    // ==== Secondary Marketplace Functions ==== //
+&nbsp;
+    /**
+     * @dev Allows a ticket owner to list their ticket for resale.
+     * @param ticketId The ID of the ticket.
+     * @param price The resale price of the ticket.
+     */
+    function listTicketForSale(uint ticketId, uint price) external <span class="missing-if-branch" title="else path not taken" >E</span>whenNotPaused onlyTicketOwner(ticketId) {
+        <span class="missing-if-branch" title="else path not taken" >E</span>require(price &gt; 0, "Price must be greater than 0");
+        <span class="missing-if-branch" title="else path not taken" >E</span>require(secondarySaleTicketPrices[ticketId] == 0, "Ticket must not be currently for sale");
+        secondarySaleTicketPrices[ticketId] = price;
+        emit TicketListed(ticketId, price);
+    }
+&nbsp;
+    // ==== Event Organizer Controls ==== //
+&nbsp;
+    /**
+     * @dev Allows the event organizer to set the ticket price.
+     * @param eventId The ID of the event.
+     * @param ticketId The ID of the ticket.
+     * @param ticketPrice The new ticket price.
+     */
+    function setTicketPrice(uint eventId, uint ticketId, uint ticketPrice) external <span class="missing-if-branch" title="else path not taken" >E</span>whenNotPaused {
+        Event storage event_ = events[eventId];
+        Ticket storage ticket = tickets[ticketId];
+        require(msg.sender == event_.organizer, "Not event organizer");
+        ticket.ticketPrice = ticketPrice;
+    }
+&nbsp;
+    // ==== Admin Controls ==== //
+&nbsp;
+    /**
+     * @dev Pauses the marketplace, preventing most functions from being called.
+     */
+    function pauseMarketPlace() external onlyOwner {
+        _pause();
+    }
+&nbsp;
+    /**
+     * @dev Resumes the marketplace, allowing functions to be called again.
+     */
+    function resumeMarketPlace() external <span class="missing-if-branch" title="else path not taken" >E</span>onlyOwner {
+        _unpause();
+    }
+&nbsp;
+    /**
+     * @dev Sets the royalty percentage for secondary sales.
+     * @param percentage The new royalty percentage.
+     */
+    function setRoyaltyPercentage(uint percentage) external <span class="missing-if-branch" title="else path not taken" >E</span>onlyOwner {
+        require(percentage &lt;= 100, "Invalid percentage");
+        royaltyPercent = percentage;
+    }
+&nbsp;
+    /**
+     * @dev Sets the platform fee percentage.
+     * @param percentage The new platform fee percentage.
+     */
+    function setPlatformFeePercentage(uint percentage) external <span class="missing-if-branch" title="else path not taken" >E</span>onlyOwner {
+        require(percentage &lt;= 100, "Invalid percentage");
+        platformFeePercent = percentage;
+    }
+&nbsp;
+    /**
+     * @dev Transfers ownership of the contract to a new admin.
+     * @param admin The address of the new admin.
+     */
+    function setAdmin(address admin) external onlyOwner {
+        transferOwnership(admin);
+    }
+&nbsp;
+    /**
+     * @dev Sets the treasury wallet address.
+     * @param wallet The address of the new treasury wallet.
+     */
+    function setTreasuryWallet(address wallet) external onlyOwner {
+        treasuryWallet = wallet;
+    }
+}</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Mar 13 2025 16:13:28 GMT-0400 (Eastern Daylight Time)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>
